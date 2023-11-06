@@ -1,0 +1,997 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.effect.MotionBlur?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #030027;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane opacity="0.31" style="-fx-background-color: transparent; -fx-max-width: infinity;">
+         <children>
+            <Polygon fill="#c97d60" layoutX="362.0" layoutY="370.0" opacity="0.66" points="-26.0, 58.0, 9.0, -26.0, 17.0, -113.0, -4.0, -203.0, 25.0, -203.0, 45.0, -113.0, 38.0, -26.0, 9.0, 58.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Polygon>
+            <Polygon fill="#247357" layoutX="411.0" layoutY="295.0" points="-155.0, -42.0, -131.0, -94.0, -89.0, -102.0, -52.0, -106.0, -14.0, -85.0, -44.0, -70.0, -73.0, -70.0, -101.0, -53.0" rotate="-45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+               <effect>
+                  <Bloom />
+               </effect>
+            </Polygon>
+            <Polygon fill="#247357" layoutX="395.0" layoutY="255.0" points="-155.0, -42.0, -131.0, -94.0, -89.0, -102.0, -52.0, -106.0, -14.0, -85.0, -44.0, -70.0, -73.0, -70.0, -101.0, -53.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+               <effect>
+                  <Bloom />
+               </effect>
+            </Polygon>
+            <Polygon fill="#247357" layoutX="411.0" layoutY="209.0" points="-155.0, -42.0, -131.0, -94.0, -89.0, -102.0, -52.0, -106.0, -14.0, -85.0, -44.0, -70.0, -73.0, -70.0, -101.0, -53.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+               <effect>
+                  <Bloom />
+               </effect>
+            </Polygon>
+            <Polygon fill="#247357" layoutX="517.0" layoutY="266.0" points="-155.0, -42.0, -131.0, -94.0, -89.0, -102.0, -52.0, -106.0, -14.0, -85.0, -44.0, -70.0, -73.0, -70.0, -101.0, -53.0" rotate="-170.5" scaleY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+               <effect>
+                  <Bloom />
+               </effect>
+            </Polygon>
+            <Polygon fill="#247357" layoutX="517.0" layoutY="223.0" points="-155.0, -42.0, -131.0, -94.0, -89.0, -102.0, -52.0, -106.0, -14.0, -85.0, -44.0, -70.0, -73.0, -70.0, -101.0, -53.0" rotate="155.2" scaleY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+               <effect>
+                  <Bloom />
+               </effect>
+            </Polygon>
+            <Polygon fill="#247357" layoutX="490.0" layoutY="184.0" points="-155.0, -42.0, -131.0, -94.0, -89.0, -102.0, -52.0, -106.0, -14.0, -85.0, -44.0, -70.0, -73.0, -70.0, -101.0, -53.0" rotate="116.6" scaleY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+               <effect>
+                  <Bloom />
+               </effect>
+            </Polygon>
+         </children>
+         <effect>
+            <GaussianBlur>
+               <input>
+                  <MotionBlur />
+               </input>
+            </GaussianBlur>
+         </effect>
+      </AnchorPane>
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.9" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: #ffffff;" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Card">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0" stylesheets="@style.css">
+                     <children>
+                        <Button layoutY="347.0" mnemonicParsing="false" prefWidth="600.0" stylesheets="@style.css" text="Not yet implemented" textAlignment="CENTER" textFill="#faf3dd" textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="20.0" />
+                           </font>
+                        </Button>
+                        <VBox prefHeight="309.0" prefWidth="600.0" AnchorPane.bottomAnchor="60.0">
+                           <children>
+                              <Label text="Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Cardholder Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css" />
+                              <Label text="Card Number" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="CVV" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Expiration Date" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <DatePicker style="-fx-background-color: #030027; -fx-background-radius: 0; -fx-border-radius: 0;" stylesheets="@style.css" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Identity">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0" stylesheets="@style.css">
+                     <children>
+                        <Button layoutY="347.0" mnemonicParsing="false" prefWidth="600.0" stylesheets="@style.css" text="Not yet implemented" textAlignment="CENTER" textFill="#faf3dd" textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="20.0" />
+                           </font></Button>
+                        <VBox prefHeight="309.0" prefWidth="600.0" AnchorPane.bottomAnchor="60.0">
+                           <children>
+                              <Label text="Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding></Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Type" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding></Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Application">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0" stylesheets="@style.css">
+                     <children>
+                        <Button layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" stylesheets="@style.css" text="Add Item" textAlignment="CENTER" textFill="#faf3dd" textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="20.0" />
+                           </font>
+                        </Button>
+                        <VBox prefHeight="309.0" prefWidth="600.0" AnchorPane.bottomAnchor="60.0">
+                           <children>
+                              <Label text="Cardholder Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <effect>
+                                    <Bloom threshold="0.91" />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Card Number" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <effect>
+                                    <Bloom threshold="0.91" />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="CVV" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <effect>
+                                    <Bloom threshold="0.91" />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Expiration Date" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <DatePicker style="-fx-background-color: #030027; -fx-background-radius: 0; -fx-border-radius: 0;" stylesheets="@style.css">
+                                 <effect>
+                                    <Bloom threshold="0.91" />
+                                 </effect>
+                              </DatePicker>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0" stylesheets="@style.css">
+                     <children>
+                        <Button layoutY="347.0" mnemonicParsing="false" prefWidth="600.0" stylesheets="@style.css" text="Not yet implemented" textAlignment="CENTER" textFill="#faf3dd" textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="20.0" />
+                           </font>
+                        </Button>
+                        <VBox prefHeight="309.0" prefWidth="600.0" AnchorPane.bottomAnchor="60.0">
+                           <children>
+                              <Label text="Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Username" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Password" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Application Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Website">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0" stylesheets="@style.css">
+                     <children>
+                        <Button layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" stylesheets="@style.css" text="Add Item" textAlignment="CENTER" textFill="#faf3dd" textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="20.0" />
+                           </font>
+                        </Button>
+                        <VBox prefHeight="309.0" prefWidth="600.0" AnchorPane.bottomAnchor="60.0">
+                           <children>
+                              <Label text="Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <effect>
+                                    <Bloom threshold="0.91" />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Username" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <effect>
+                                    <Bloom threshold="0.91" />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Password" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <effect>
+                                    <Bloom threshold="0.91" />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Application Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <effect>
+                                    <Bloom threshold="0.91" />
+                                 </effect>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0" stylesheets="@style.css">
+                     <children>
+                        <Button layoutY="347.0" mnemonicParsing="false" prefWidth="600.0" stylesheets="@style.css" text="Not yet implemented" textAlignment="CENTER" textFill="#faf3dd" textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="20.0" />
+                           </font>
+                        </Button>
+                        <VBox prefHeight="309.0" prefWidth="600.0" AnchorPane.bottomAnchor="60.0">
+                           <children>
+                              <Label text="Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Username" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Password" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="URL" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Device">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0" stylesheets="@style.css">
+                     <children>
+                        <Button layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" stylesheets="@style.css" text="Add Item" textAlignment="CENTER" textFill="#faf3dd" textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="20.0" />
+                           </font>
+                        </Button>
+                        <VBox prefHeight="309.0" prefWidth="600.0" AnchorPane.bottomAnchor="60.0">
+                           <children>
+                              <Label text="Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <effect>
+                                    <Bloom threshold="0.91" />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Username" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <effect>
+                                    <Bloom threshold="0.91" />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Password" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <effect>
+                                    <Bloom threshold="0.91" />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Application Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <effect>
+                                    <Bloom threshold="0.91" />
+                                 </effect>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0" stylesheets="@style.css">
+                     <children>
+                        <Button layoutY="347.0" mnemonicParsing="false" prefWidth="600.0" stylesheets="@style.css" text="Not yet implemented" textAlignment="CENTER" textFill="#faf3dd" textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="20.0" />
+                           </font>
+                        </Button>
+                        <VBox prefHeight="309.0" prefWidth="600.0" AnchorPane.bottomAnchor="60.0">
+                           <children>
+                              <Label text="Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Username" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Password" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Device" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Note">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0" stylesheets="@style.css">
+                     <children>
+                        <Button layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" stylesheets="@style.css" text="Add Item" textAlignment="CENTER" textFill="#faf3dd" textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="20.0" />
+                           </font>
+                        </Button>
+                        <VBox prefHeight="309.0" prefWidth="600.0" AnchorPane.bottomAnchor="60.0">
+                           <children>
+                              <Label text="Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <effect>
+                                    <Bloom threshold="0.91" />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Username" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <effect>
+                                    <Bloom threshold="0.91" />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Password" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <effect>
+                                    <Bloom threshold="0.91" />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Application Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <effect>
+                                    <Bloom threshold="0.91" />
+                                 </effect>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0" stylesheets="@style.css">
+                     <children>
+                        <VBox prefHeight="309.0" prefWidth="600.0" AnchorPane.bottomAnchor="60.0">
+                           <children>
+                              <Label text="Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Notes" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextArea prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <Button layoutX="-1.0" layoutY="324.0" mnemonicParsing="false" prefWidth="600.0" stylesheets="@style.css" text="Not yet implemented" textAlignment="CENTER" textFill="#faf3dd" textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="20.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Custom">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0" stylesheets="@style.css">
+                     <children>
+                        <Button layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" stylesheets="@style.css" text="Not yet implemented" textAlignment="CENTER" textFill="#faf3dd" textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="20.0" />
+                           </font>
+                        </Button>
+                        <VBox prefHeight="309.0" prefWidth="600.0" AnchorPane.bottomAnchor="60.0">
+                           <children>
+                              <Label text="Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Notes" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextArea prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0" stylesheets="@style.css">
+                     <children>
+                        <VBox prefHeight="309.0" prefWidth="600.0" AnchorPane.bottomAnchor="60.0">
+                           <children>
+                              <Label text="Name" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Notes" textFill="#faf3dd">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <Bloom />
+                                 </effect>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextArea prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <Button layoutX="-1.0" layoutY="331.0" mnemonicParsing="false" prefWidth="600.0" stylesheets="@style.css" text="Not yet implemented" textAlignment="CENTER" textFill="#faf3dd" textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="20.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</StackPane>

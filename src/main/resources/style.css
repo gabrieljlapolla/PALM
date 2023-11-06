@@ -1,0 +1,165 @@
+/*
+Colors picked using coolors.co
+https://coolors.co/030027-151e3f-c97d60-247357-faf3dd
+*/
+* {
+   -fx-dark-blue: #030027;
+   -fx-blue: #151e3f;
+   -fx-trunk: #c97d60;
+   -fx-green: #247357;
+   -fx-white: #faf3dd;
+}
+
+
+.root {
+   -fx-font-size: 16pt;
+   -fx-font-family: "Monospaced";
+   -fx-font-color: -fx-white;
+   -fx-base: -fx-dark-blue;
+   -fx-background: -fx-blue;
+   -fx-accent: transparent;
+   -fx-focus-color: transparent;
+   -fx-faint-focus-color: transparent;
+}
+
+/* Button */
+.button {
+   -fx-font-family: "Monospaced";
+   -fx-text-fill: -fx-white;
+   -fx-border-color: transparent;
+   -fx-background-color: -fx-blue;
+   -fx-background-radius: 0;
+   -fx-max-width: infinity;
+}
+
+.button:pressed:hover {
+   -fx-border-color: -fx-green;
+}
+
+.button:hover {
+   -fx-font-weight: bold;
+   -fx-border-color: -fx-white;
+}
+
+/* Text field/area */
+.text-field, .text-area{
+   -fx-font-family: "Monospaced";
+   -fx-background-color: -fx-background;
+   -fx-border-color: -fx-dark-blue;
+   -fx-background-radius: 0;
+   -fx-text-fill: black;
+   -fx-highlight-fill: -fx-green;
+   -fx-opacity: 0.7;
+}
+
+.text-field:focused, .text-area:focused{
+   -fx-border-color: -fx-green;
+}
+
+/* Date Picker */
+.date-picker .arrow-button {
+   -fx-background-color: -fx-green;
+   -fx-background-radius: 0;
+}
+.date-picker .arrow-button:hover {
+   -fx-background-color: -fx-green;
+   -fx-border-color: -fx-white;
+}
+.date-picker .arrow-button .arrow {
+   -fx-background-color: -fx-white;
+}
+
+.date-picker .cell {
+   -fx-background-color: transparent;
+}
+
+.date-picker .cell:hover {
+   -fx-background-color: -fx-green;
+}
+
+.date-picker .cell:focused {
+   -fx-background-color: -fx-green;
+}
+
+.date-picker .selected {
+   -fx-background-color: -green;
+   -fx-text-fill: -fx-white;
+}
+.date-picker .selected:focused {
+   -fx-background-color: -fx-dark-blue;
+   -fx-text-fill: -fx-white;
+}
+.date-picker-popup  {
+   -fx-border-color: -fx-green;
+}
+.date-picker-popup .month-year-pane {
+   -fx-background-color: -fx-dark-blue;
+}
+
+.date-picker-popup .month-year-pane .label {
+   -fx-text-fill: -fx-white;
+}
+
+.date-picker-popup .week-number-cell {
+   -fx-text-fill: -fx-white;
+}
+
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+   -fx-background-color: -fx-white;
+}
+
+/* TabPane */
+.tab-pane *.tab-header-area *.tab-header-background {
+   -fx-background-color: transparent;
+   -fx-background-insets: 0
+}
+
+.tab {
+   -fx-font-family: Monospaced;
+   -fx-font-size: 16;
+   -fx-background-color: -fx-dark-blue;
+}
+
+.tab:hover {
+   -fx-border-color: -fx-green;
+}
+
+.tab:selected {
+   -fx-border-color: -fx-white;
+}
+
+.tab-label {
+   -fx-text-fill: -fx-white;
+}
+
+/* ListView */
+.list-view {
+   -fx-font-family: Monospaced;
+   -fx-font-size: 16;
+   -fx-border-color: -fx-dark-blue;
+}
+
+.list-cell {
+   -fx-background-color: -fx-dark-blue;
+   -fx-text-fill: -fx-white;
+}
+
+.list-cell:filled:hover, .list-cell:filled:selected {
+   -fx-background-color: -fx-green;
+   -fx-border-color: -fx-white;
+}
+
+/* Scrollbar */
+.scroll-bar:vertical, .scroll-bar:horizontal {
+    -fx-foreground-color: transparent;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+   -fx-shape: " ";
+   -fx-padding: 0 0;
+}
