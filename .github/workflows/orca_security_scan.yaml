@@ -1,23 +1,21 @@
 name: 'Orca Security Scan'
 on:
-  # Scan for each push event on your protected branch. If you have a different branch configured, please adjust the configuration accordingly by replacing 'main'.
   push:
     branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
   orca-fs-scan:
-    name: Orca fs Scan
+    name: 'Orca Scan'
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v3
 
-      - name: Run Orca FS Scan
+      - name: 'Run Orca Scan'
         uses: orcasecurity/shiftleft-fs-action@v1
         with:
           api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
           project_key: ${{ env.PROJECT_KEY }}
           path:
-            # scanning the entire repository
             "."
