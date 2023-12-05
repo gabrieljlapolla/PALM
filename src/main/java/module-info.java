@@ -3,6 +3,8 @@ module palm {
     requires javafx.fxml;
     requires junit;
     requires java.sql;
+    requires org.bouncycastle.provider;
+    requires spring.security.crypto;
 
 
     opens PALM to javafx.graphics, javafx.fxml;

@@ -1,5 +1,6 @@
 package PALM;
 
+import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
@@ -10,7 +11,7 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Base64;
 
-public class AES {
+public class Encrypt {
     private final static String HASH_ALGORITHM = "SHA-256";
     private final static String ENCRYPT_ALGORITHM = "AES";
     private final static String CIPHER_ALGORITHM = "AES/ECB/PKCS5Padding";
@@ -28,24 +29,22 @@ public class AES {
      * hashed password
      */
     public static SaltHash getPasswordHash(String username, String password, byte[] salt) {
+        final int SALT_LENGTH = 16;
+        final int HASH_LENGTH = 32;
+        final int PARALLELISM = 3;
+        final int MEMORY = 100000;
+        final int ITERATIONS = 5;
+
         if (salt == null) {
             // Generate random salt
-            salt = new byte[16];
+            salt = new byte[SALT_LENGTH];
             new SecureRandom().nextBytes(salt);
         }
-        String passwordHash = null;
-        try {
-            // Generate hash using salt
-            MessageDigest md = MessageDigest.getInstance(HASH_ALGORITHM);
-            md.update(salt);
-            byte[] hash = md.digest(password.getBytes());
-            passwordHash = Base64.getEncoder().encodeToString(hash); // Convert to string
 
-        } catch (Exception e) {
-            System.err.println("Error hashing password.");
-            return null;
-        }
-        return new SaltHash(username, salt, passwordHash);
+        Argon2PasswordEncoder encoder =
+                new Argon2PasswordEncoder(SALT_LENGTH, HASH_LENGTH, PARALLELISM, MEMORY, ITERATIONS);
+
+        return new SaltHash(username, salt, encoder.encode(password));
     }
 
     /**
@@ -58,7 +57,7 @@ public class AES {
      * @postconditions If hashes match, true is returned
      */
     public static boolean checkPassword(String username, String password, SaltHash sh) {
-        return sh.hash.equals(AES.getPasswordHash(username, password, sh.salt).hash);
+        return sh.hash.equals(Encrypt.getPasswordHash(username, password, sh.salt).hash);
     }
 
     /**
@@ -126,5 +125,9 @@ public class AES {
         public String encrypt(String key);
 
         public String decrypt(String encryptedData, String key);
+    }
+
+    public static void main(String[] args) {
+        getPasswordHash("username1", "password1", null);
     }
 }
