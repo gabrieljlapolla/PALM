@@ -26,12 +26,12 @@ public class CredentialIdentity extends Item {
     }
 
     public String encrypt(String key) {
-        return AES.encrypt(String.format("%s+%s+%s+%s", this.getClass().getSimpleName(), name, type, fields.toString()),
+        return Encrypt.encrypt(String.format("%s+%s+%s+%s", this.getClass().getSimpleName(), name, type, fields.toString()),
                 key);
     }
 
     public String decrypt(String encryptedData, String key) {
-        return AES.decrypt(encryptedData, key);
+        return Encrypt.decrypt(encryptedData, key);
     }
 
     @Override

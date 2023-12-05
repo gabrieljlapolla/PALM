@@ -45,12 +45,12 @@ public class CredentialCard extends Item {
     }
 
     public String encrypt(String key) {
-        return AES.encrypt(String.format("%s+%s+%s+%d+%d+%s+%s", this.getClass().getSimpleName(), name, holderName,
+        return Encrypt.encrypt(String.format("%s+%s+%s+%d+%d+%s+%s", this.getClass().getSimpleName(), name, holderName,
                 number, cvv, expiration, fields.toString()), key);
     }
 
     public String decrypt(String encryptedData, String key) {
-        return AES.decrypt(encryptedData, key);
+        return Encrypt.decrypt(encryptedData, key);
     }
 
     @Override

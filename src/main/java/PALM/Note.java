@@ -22,10 +22,10 @@ public class Note extends Item {
     }
 
     public String encrypt(String key) {
-        return AES.encrypt(String.format("%s+%s+%s", this.getClass().getSimpleName(), name, notes), key);
+        return Encrypt.encrypt(String.format("%s+%s+%s", this.getClass().getSimpleName(), name, notes), key);
     }
 
     public String decrypt(String encryptedData, String key) {
-        return AES.decrypt(encryptedData, key);
+        return Encrypt.decrypt(encryptedData, key);
     }
 }

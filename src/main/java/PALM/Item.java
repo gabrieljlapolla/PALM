@@ -2,7 +2,7 @@ package PALM;
 
 import java.io.Serializable;
 
-public abstract class Item implements AES.Encryptable, Serializable {
+public abstract class Item implements Encrypt.Encryptable, Serializable {
     protected String name;
 
     protected Item(String name) {

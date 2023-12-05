@@ -121,7 +121,7 @@ public class UserPrompts {
                         System.out.printf("Password must be at least %d characters.\n", minPassLen);
                         continue;
                     }
-                    if (pdb.writeUser(username, AES.getPasswordHash(username, password, null))) {
+                    if (pdb.writeUser(username, Encrypt.getPasswordHash(username, password, null))) {
                         System.out.printf("Welcome %s!\n", username);
                     } else {
                         System.err.println("Error creating user...");

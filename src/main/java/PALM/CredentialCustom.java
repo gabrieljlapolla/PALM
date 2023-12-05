@@ -20,11 +20,11 @@ public class CredentialCustom extends Item {
     }
 
     public String encrypt(String key) {
-        return AES.encrypt(String.format("%s+%s+%s", this.getClass().getSimpleName(), name, fields.toString()), key);
+        return Encrypt.encrypt(String.format("%s+%s+%s", this.getClass().getSimpleName(), name, fields.toString()), key);
     }
 
     public String decrypt(String encryptedData, String key) {
-        return AES.decrypt(encryptedData, key);
+        return Encrypt.decrypt(encryptedData, key);
     }
 
     @Override

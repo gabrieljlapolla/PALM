@@ -155,7 +155,7 @@ public class PALMDB {
             ByteArrayInputStream baip = new ByteArrayInputStream(rs.getBytes("salthash"));
             ObjectInputStream ois = new ObjectInputStream(baip);
             SaltHash salthash = (SaltHash) ois.readObject();
-            return AES.checkPassword(username, password, salthash);
+            return Encrypt.checkPassword(username, password, salthash);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -209,7 +209,7 @@ public class PALMDB {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 for (String line : rs.getString("items").split("\n")) {
-                    String[] params = AES.decrypt(line, password).split("\\+");
+                    String[] params = Encrypt.decrypt(line, password).split("\\+");
                     // Create correct object based on first String in array
                     switch (params[0]) {
                         case "LoginApplication" ->

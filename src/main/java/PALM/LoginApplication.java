@@ -13,13 +13,13 @@ public class LoginApplication extends Login {
     }
 
     public String encrypt(String key) {
-        return AES.encrypt(
+        return Encrypt.encrypt(
                 String.format("%s+%s+%s+%s+%s", this.getClass().getSimpleName(), name, username, password, appName),
                 key);
     }
 
     public String decrypt(String encryptedData, String key) {
-        return AES.decrypt(encryptedData, key);
+        return Encrypt.decrypt(encryptedData, key);
     }
 
     @Override
