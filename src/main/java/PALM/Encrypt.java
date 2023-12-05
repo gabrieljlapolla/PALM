@@ -1,6 +1,7 @@
 package PALM;
 
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
+
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
@@ -15,6 +16,12 @@ public class Encrypt {
     private final static String HASH_ALGORITHM = "SHA-256";
     private final static String ENCRYPT_ALGORITHM = "AES";
     private final static String CIPHER_ALGORITHM = "AES/ECB/PKCS5Padding";
+    // Argon2 Hashing parameters
+    private final static int SALT_LENGTH = 16;
+    private final static int HASH_LENGTH = 32;
+    private final static int PARALLELISM = 3;
+    private final static int MEMORY = 100000;
+    private final static int ITERATIONS = 5;
 
     /**
      * Creates a hash of the given password using the given salt or by generating a
@@ -29,12 +36,6 @@ public class Encrypt {
      * hashed password
      */
     public static SaltHash getPasswordHash(String username, String password, byte[] salt) {
-        final int SALT_LENGTH = 16;
-        final int HASH_LENGTH = 32;
-        final int PARALLELISM = 3;
-        final int MEMORY = 100000;
-        final int ITERATIONS = 5;
-
         if (salt == null) {
             // Generate random salt
             salt = new byte[SALT_LENGTH];
@@ -50,14 +51,15 @@ public class Encrypt {
     /**
      * Compares a given username and password combination to saved ones
      *
-     * @param username Username to check
      * @param password Password to check
      * @return True if a correct combination is given
      * @preconditions Password must already be hashed and given as SaltHash
      * @postconditions If hashes match, true is returned
      */
-    public static boolean checkPassword(String username, String password, SaltHash sh) {
-        return sh.hash.equals(Encrypt.getPasswordHash(username, password, sh.salt).hash);
+    public static boolean checkPassword(String password, SaltHash sh) {
+        Argon2PasswordEncoder encoder =
+                new Argon2PasswordEncoder(SALT_LENGTH, HASH_LENGTH, PARALLELISM, MEMORY, ITERATIONS);
+        return encoder.matches(password, sh.hash);
     }
 
     /**
@@ -121,13 +123,15 @@ public class Encrypt {
         return null;
     }
 
+    public static void main(String[] args) {
+        SaltHash sh = getPasswordHash("username1", "password1", null);
+        System.out.println(getPasswordHash("username1", "password1", sh.salt));
+        System.out.println(checkPassword("password1", sh));
+    }
+
     public interface Encryptable {
         public String encrypt(String key);
 
         public String decrypt(String encryptedData, String key);
-    }
-
-    public static void main(String[] args) {
-        getPasswordHash("username1", "password1", null);
     }
 }

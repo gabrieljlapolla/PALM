@@ -155,7 +155,7 @@ public class PALMDB {
             ByteArrayInputStream baip = new ByteArrayInputStream(rs.getBytes("salthash"));
             ObjectInputStream ois = new ObjectInputStream(baip);
             SaltHash salthash = (SaltHash) ois.readObject();
-            return Encrypt.checkPassword(username, password, salthash);
+            return Encrypt.checkPassword(password, salthash);
 
         } catch (Exception e) {
             e.printStackTrace();
