@@ -1,7 +1,10 @@
 package PALM;
 
+import com.twilio.rest.verify.v2.service.entity.NewFactor;
+
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class UserPrompts {
 
@@ -88,26 +91,29 @@ public class UserPrompts {
         String password;
         int minPassLen = 3;
 
+        System.out.println("""
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                					          ___   ____
+                        /' --;^/ ,-_\\     \\ | /
+                       / / --o\\ o-\\ \\\\   --(_)--
+                      /-/-/|o|-|\\-\\\\|\\\\   / | \\              PALM
+                       '`  ` |-|   `` '                      Password and Login Manager
+                             |-|
+                             |-|O
+                             |-(\\,__
+                          ...|-|\\--,\\_....
+                      ,;;;;;;;;;;;;;;;;;;;;;;;;,.
+                ~~,;ASCII art from www.asciiart.eu ;;;;;;,~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                ~;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,  ______   ---------   _____     ------
+                """);
+
         // Prompt user until correct credentials are entered
         while (true) {
-            System.out.println("""
-                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                    					          ___   ____
-                            /' --;^/ ,-_\\     \\ | /
-                           / / --o\\ o-\\ \\\\   --(_)--
-                          /-/-/|o|-|\\-\\\\|\\\\   / | \\              PALM
-                           '`  ` |-|   `` '                      Password and Login Manager
-                                 |-|
-                                 |-|O
-                                 |-(\\,__
-                              ...|-|\\--,\\_....
-                          ,;;;;;;;;;;;;;;;;;;;;;;;;,.
-                    ~~,;ASCII art from www.asciiart.eu ;;;;;;,~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                    ~;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,  ______   ---------   _____     ------
-                    """);
+
             username = prompt("Please enter your username: ");
             // Nothing entered
-            if (username.length() == 0) {
+            if (username.length() < 3) {
+                System.out.println("Username must be at least 3 characters.");
                 continue;
             }
             // Username not found, prompt to create new account
@@ -115,13 +121,37 @@ public class UserPrompts {
             if (!pdb.containsUser(username)) {
                 if (prompt(String.format("Username \"%s\" not found! Create new account? (Y/N): ", username))
                         .equalsIgnoreCase("y")) {
+
                     // Create new account
                     password = prompt("Please enter your new master password: ");
                     if (password.length() < minPassLen) {
                         System.out.printf("Password must be at least %d characters.\n", minPassLen);
                         continue;
                     }
-                    if (pdb.writeUser(username, Encrypt.getPasswordHash(username, password, null))) {
+
+                    // Configure TOTP MFA through Twilio API
+                    String uuid = UUID.randomUUID().toString(); // Unique user ID
+                    System.out.println("Multi-factor authentications");
+                    NewFactor response = Twilio2FA.createNewTOTPFactor(uuid, username);
+                    String secret = response.getBinding().get("secret").toString();
+                    String responseSid = response.getSid();
+                    System.out.printf("Please enter the following secret into a 2FA application: \"%s\"\n", secret);
+
+                    boolean verified = false;
+                    while (!verified) {
+                        try {
+                            int code = promptInt("Confirm code from 2FA app: ");
+                            verified = Twilio2FA.verifyTOTPFactor(uuid, responseSid, code);
+                            if (!verified) {
+                                System.out.println("Incorrect code entered!");
+                            }
+                        } catch (Exception e) {
+                            System.err.println("Error communicating with MFA service. Please try again.");
+                        }
+                    }
+
+                    // Write user to database
+                    if (pdb.writeUser(username, Encrypt.getPasswordHash(username, password, null), uuid, responseSid)) {
                         System.out.printf("Welcome %s!\n", username);
                     } else {
                         System.err.println("Error creating user...");
@@ -133,10 +163,25 @@ public class UserPrompts {
                 password = prompt("Please enter your password: ");
                 if (pdb.checkUser(username, password)) {
                     System.out.printf("Welcome back, %s!\n", username);
+
+                    boolean valid = false;
+                    while (!valid) {
+                        try {
+                            int code = promptInt("Confirm code from 2FA app: ");
+                            valid = Twilio2FA.validateToken(pdb.readUserUuid(username), pdb.readUserTotpSid(username), code);
+                            if (!valid) {
+                                System.out.println("Incorrect code entered!");
+                            }
+                        } catch (Exception e) {
+                            System.err.println("Error communicating with MFA service. Please try again.");
+                        }
+                    }
+
                     break;
                 } else {
                     System.out.println("Incorrect password. Try again.");
                 }
+
             }
         }
         return new String[]{username, password};

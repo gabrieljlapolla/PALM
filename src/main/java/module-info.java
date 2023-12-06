@@ -6,6 +6,7 @@ module palm {
     requires org.bouncycastle.provider;
     requires spring.security.crypto;
     requires slf4j.nop;
+    requires twilio;
 
 
     opens PALM to javafx.graphics, javafx.fxml;

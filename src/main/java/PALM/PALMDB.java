@@ -56,13 +56,15 @@ public class PALMDB {
              PreparedStatement ps = connection.prepareStatement(queryItems)) {
             ps.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error creating database");
         }
 
         String queryUsers = """
                 CREATE TABLE IF NOT EXISTS usersTable (
                              username text PRIMARY KEY,
+                             uuid text,
                              salthash blob NOT NULL,
+                             totpsid text,
                              FOREIGN KEY (username)
                                  REFERENCES itemsTable (username)
                                  ON DELETE CASCADE
@@ -73,7 +75,7 @@ public class PALMDB {
              PreparedStatement ps = connection.prepareStatement(queryUsers)) {
             ps.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error creating database");
         }
     }
 
@@ -92,7 +94,6 @@ public class PALMDB {
             }
         } catch (SQLException e) {
             System.err.println("Could not connect to database");
-            e.printStackTrace();
         }
         return null;
     }
@@ -106,8 +107,8 @@ public class PALMDB {
      * @preconditions User database table must exist
      * @postconditions User is written to database
      */
-    public boolean writeUser(String username, SaltHash saltHash) {
-        String query = "INSERT INTO usersTable (username, salthash) VALUES(?,?)";
+    public boolean writeUser(String username, SaltHash saltHash, String uuid, String totpsid) {
+        String query = "INSERT INTO usersTable (username, salthash, uuid, totpsid) VALUES(?,?,?,?)";
 
         try (Connection connection = connect();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -118,10 +119,14 @@ public class PALMDB {
             ObjectOutputStream oos = new ObjectOutputStream(baos);
             oos.writeObject(saltHash);
             ps.setBytes(2, baos.toByteArray());
+
+            ps.setString(3, uuid);
+            ps.setString(4, totpsid);
+
             ps.execute();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Error writing to database");
             return false;
         }
         return true;
@@ -139,7 +144,6 @@ public class PALMDB {
     public boolean checkUser(String username, String password) {
         // Check if user even exists
         if (!containsUser(username)) {
-            System.out.println("User not found");
             return false;
         }
 
@@ -158,8 +162,70 @@ public class PALMDB {
             return Encrypt.checkPassword(password, salthash);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Error reading from database");
             return false;
+        }
+    }
+
+    /**
+     * Reads the given user's UUID from database
+     *
+     * @param username Username to check
+     * @return User's UUID if it exists or null
+     * @preconditions User database table must exist
+     * @postconditions None
+     */
+    public String readUserUuid(String username) {
+        // Check if user even exists
+        if (!containsUser(username)) {
+            System.err.println("User not found");
+            return null;
+        }
+
+        String query = "SELECT uuid " +
+                       "FROM usersTable WHERE username = ?";
+
+        try (Connection connection = connect();
+             PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+
+            return rs.getString(1);
+
+        } catch (Exception e) {
+            System.err.println("Error reading from database");
+            return null;
+        }
+    }
+
+    /**
+     * Reads the given user's TOTP SID from database
+     *
+     * @param username Username to check
+     * @return User's TOTP SID if it exists or null
+     * @preconditions User database table must exist
+     * @postconditions None
+     */
+    public String readUserTotpSid(String username) {
+        // Check if user even exists
+        if (!containsUser(username)) {
+            System.err.println("User not found");
+            return null;
+        }
+
+        String query = "SELECT totpsid " +
+                       "FROM usersTable WHERE username = ?";
+
+        try (Connection connection = connect();
+             PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+
+            return rs.getString(1);
+
+        } catch (SQLException e) {
+            System.err.println("Error reading from database");
+            return null;
         }
     }
 
@@ -184,7 +250,7 @@ public class PALMDB {
                 return true;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error reading from database");
             return false;
         }
         return false;
@@ -228,8 +294,8 @@ public class PALMDB {
                 }
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.err.println("Error reading from database");
         }
     }
 
@@ -259,8 +325,8 @@ public class PALMDB {
             ps.setString(1, username); // Store username
             ps.setString(2, sb.toString());
             ps.execute();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.err.println("Error writing to database");
             return false;
         }
         return true;
@@ -278,8 +344,8 @@ public class PALMDB {
              PreparedStatement ps = connection.prepareStatement(countQuery)) {
             ResultSet rs = ps.executeQuery();
             userCount = rs.getInt("total");
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("Error reading from database");
         }
 
         // Print all users
@@ -293,7 +359,7 @@ public class PALMDB {
                 System.out.println(rs.getString("username"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error reading from database");
         }
 
         // Print all users' encrypted information
@@ -309,7 +375,7 @@ public class PALMDB {
                 System.out.printf("%s\n%s\n", rs.getString("salthash"), rs.getString("items"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error reading from database");
         }
     }
 }
