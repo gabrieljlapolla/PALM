@@ -3,7 +3,9 @@ package PALM;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 public class PALM {
@@ -49,20 +51,20 @@ public class PALM {
      * @postconditions Thread running that automatically saves items
      */
     private static void automaticSave(String username, String password) {
-        final int DELAY = 5000;
+        final int DELAY = 5; // Delay in seconds
         PALMDB pdb = new PALMDB();
-        Thread saver = new Thread(() -> {
-            while (true) {
-                try {
-                    Thread.sleep(DELAY);
-                    pdb.writeItems(username, password, items);
-                } catch (InterruptedException e) {
-                    System.err.println("Error automatically saving");
-                }
-            }
+        // Create thread to execute after a delay to save items
+        ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor(r -> {
+            Thread t = Executors.defaultThreadFactory().newThread(r);
+            // Make daemon so Thread is killed when main program exits
+            t.setDaemon(true);
+            return t;
         });
-        saver.setDaemon(true); // Set as Daemon thread to automatically stop when main thread exits
-        saver.start();
+
+        ses.scheduleWithFixedDelay(() -> {
+            pdb.writeItems(username, password, items);
+            System.out.println("saved");
+        }, 0, DELAY, TimeUnit.SECONDS);
     }
 
     /**
@@ -152,9 +154,10 @@ public class PALM {
 
     /**
      * Generates password
-     * @param length Length of pasword
-     * @param nums Include numbers
-     * @param caps Include uppercase letters
+     *
+     * @param length  Length of pasword
+     * @param nums    Include numbers
+     * @param caps    Include uppercase letters
      * @param symbols Include symbols
      * @return Generate password
      */
