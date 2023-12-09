@@ -1,7 +1,7 @@
-# palm - Password and Login Manager
+# PALM - Password and Login Manager
 
 #### Description
-palm is an application that allows for users to encrypt and store multiple types of information.
+PALM is an application that allows for users to encrypt and store multiple types of information.
 
 Users can create an account with a username, password, and a TOTP MFA code, login to that account, and manage their encrypted items.
 
