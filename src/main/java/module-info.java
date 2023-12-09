@@ -9,8 +9,10 @@ module palm {
     requires twilio;
 
 
-    opens PALM to javafx.graphics, javafx.fxml;
-    exports PALM;
-    exports PALMGUI;
-    opens PALMGUI to javafx.fxml, javafx.graphics;
+    opens palm to javafx.graphics, javafx.fxml;
+    exports palm;
+    exports palmgui;
+    exports palmtest;
+    opens palmgui to javafx.fxml, javafx.graphics;
+    opens palmtest to org.junit.jupiter.api;
 }

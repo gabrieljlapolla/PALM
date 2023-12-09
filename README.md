@@ -1,7 +1,7 @@
-# PALM - Password and Login Manager
+# palm - Password and Login Manager
 
 #### Description
-PALM is an application that allows for users to encrypt and store multiple types of information.
+palm is an application that allows for users to encrypt and store multiple types of information.
 
 Users can create an account with a username, password, and a TOTP MFA code, login to that account, and manage their encrypted items.
 
@@ -10,6 +10,6 @@ Items include logins, credentials such as identification or payment details, not
 User files are encrypted and decrypted using the user’s password and a randomly generated salt.
 
 #### How to Use
-Run the main method in the PALM.java file to use a text based interface.
+Run the main method in the palm.java file to use a text based interface.
 
-PALMGUI.java launches the, currently non-functional, GUI.
+palmgui.java launches the, currently non-functional, GUI.
