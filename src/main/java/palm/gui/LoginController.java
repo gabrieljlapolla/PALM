@@ -1,4 +1,4 @@
-package palmgui;
+package palm.gui;
 
 import palm.PALM;
 import palm.PALMDB;

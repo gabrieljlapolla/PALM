@@ -7,12 +7,11 @@ module palm {
     requires spring.security.crypto;
     requires slf4j.nop;
     requires twilio;
-
+    requires jazzer.junit;
+    requires jazzer.api;
 
     opens palm to javafx.graphics, javafx.fxml;
     exports palm;
-    exports palmgui;
-    exports palmtest;
-    opens palmgui to javafx.fxml, javafx.graphics;
-    opens palmtest to org.junit.jupiter.api;
+    exports palm.gui;
+    opens palm.gui to javafx.fxml, javafx.graphics;
 }

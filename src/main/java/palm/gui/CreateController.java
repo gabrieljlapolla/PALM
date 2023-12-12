@@ -1,4 +1,4 @@
-package palmgui;
+package palm.gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

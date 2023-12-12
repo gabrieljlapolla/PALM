@@ -1,4 +1,4 @@
-package palmtest;
+package palm;
 
 import org.junit.Test;
 import palm.Note;
