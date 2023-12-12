@@ -39,3 +39,6 @@ build/
 
 ### Database ###
 *.sqlite
+
+## CI Fuzz ###
+.cifuzz*
